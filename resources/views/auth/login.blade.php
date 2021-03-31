@@ -10,16 +10,16 @@
                     {{ __('Login') }}
                 </div>
 
-                    <form class="py-10 px-5" method="POST" action="{{ route('login') }}">
+                    <form class="py-10 px-5" method="POST" action="{{ route('login') }}" novalidate>
                     @csrf
 
                     <div class="flex flex-wrap mb-6">
                         <label for="email" class="block text-gray-700 text-sm mb-2">{{ __('E-Mail Address') }}</label>
 
-                        <input id="email" type="email" class="p-3 bg-gray-100 rounded form-input w-full @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input id="email" type="email" class="p-3 bg-gray-100 rounded form-input w-full @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
 
                         @error('email')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="bg-red-100 border-l-4 border-red-500 text-red 700 p-4 w-full mt-5 text-sm" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -28,10 +28,10 @@
                     <div class="flex flex-wrap mb-6">
                         <label for="password" class="block text-gray-700 text-sm mb-2">{{ __('Password') }}</label>
 
-                        <input id="password" type="password" class="p-3 bg-gray-100 rounded form-input w-full @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <input id="password" type="password" class="p-3 bg-gray-100 rounded form-input w-full @error('password') is-invalid @enderror" name="password"  autocomplete="current-password">
 
                         @error('password')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="bg-red-100 border-l-4 border-red-500 text-red 700 p-4 w-full mt-5 text-sm" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="flex flex-wrap">
-                        <button type="submit" class="bg-teal-500 w-full hover:bg-teal-700 text-gray-100 p-3 focus:outline-none focus:shadow-outline uppercase font-gold">
+                        <button type="submit" class="bg-teal-500 w-full hover:bg-teal-700 text-gray-100 p-3 focus:outline-none focus:shadow-outline uppercase font-bold">
                             {{ __('Login') }}
                         </button>
 
