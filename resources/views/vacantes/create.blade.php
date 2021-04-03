@@ -24,7 +24,30 @@
 					<option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
 				@endforeach
 			</select>
-			
+		</div>
+
+		<div class="mb-5">
+			<label for="experiencia" class="block text-gray-700 text-sm mb-2">Experiencia</label>
+
+			<select id="experiencia" class="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 p-3 bg-gray-100 w-full" name="experiencia">
+				<option disabled selected>- Selecciona -</option>
+
+				@foreach ($experiencias as $experiencia)
+					<option value="{{ $experiencia->id }}">{{ $experiencia->nombre }}</option>
+				@endforeach
+			</select>
+		</div>
+
+		<div class="mb-5">
+			<label for="ubicacion" class="block text-gray-700 text-sm mb-2">Ubicación</label>
+
+			<select id="ubicacion" class="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 p-3 bg-gray-100 w-full" name="ubicacion">
+				<option disabled selected>- Selecciona -</option>
+
+				@foreach ($ubicaciones as $ubicacion)
+					<option value="{{ $ubicacion->id }}">{{ $ubicacion->nombre }}</option>
+				@endforeach
+			</select>
 		</div>
 
 
