@@ -122,7 +122,7 @@
 		</div>
 
 		<div class="mb-5">
-			<label for="descripcion" class="block text-gray-700 text-sm mb-2">Imagen del puesto: </label>
+			<label for="imagen" class="block text-gray-700 text-sm mb-2">Imagen del puesto: </label>
 
 			<div id="dropzoneDev" class="dropzone rounded bg-gray-100"></div>
 
@@ -170,7 +170,8 @@
 	<!-- Dropzone -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous"></script>
 
-	<script type="text/javascript">
+	<script type="application/javascript">
+		Dropzone.autoDiscover = false;
 		document.addEventListener('DOMContentLoaded', () => {
 
 			//Medium Editor
@@ -191,7 +192,7 @@
 			editor.subscribe('editableInput', function(eventObj, editable) {
 				const contenido = editor.getContent();
 				document.querySelector('#descripcion').value = contenido;
-			})
+			});
 
 			//llena el editor con el contenido de input hidden
 			editor.setContent( document.querySelector('#descripcion').value );
@@ -235,7 +236,6 @@
 					}
 				},
 				removedfile: function(file, response) {
-
 					file.previewElement.parentNode.removeChild(file.previewElement);
 
 					params = {
@@ -244,7 +244,7 @@
 
 					axios.post('/vacantes/borrarimagen', params ).then(respuesta => console.log(respuesta))
 				}
-			})
+			});
 		})
 	</script>
 @endsection

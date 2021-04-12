@@ -39,11 +39,16 @@ class CreateVacantesTable extends Migration
 
         Schema::create('vacantes', function (Blueprint $table) {
             $table->id();
+            $table->string('titulo');
+            $table->string('imagen');
             $table->text('descripcion');
+            $table->text('skills');
+            $table->boolean('activa')->default(true);
             $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
             $table->foreignId('experiencia_id')->constrained()->onDelete('cascade');
             $table->foreignId('ubicacion_id')->constrained()->onDelete('cascade');
             $table->foreignId('salario_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
