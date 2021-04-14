@@ -32,5 +32,8 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
 	Route::post('/vacantes/borrarimagen', 'VacanteController@borrarimagen')->name('vacantes.borrar');
 });
 
+//enviar datos para una vacante
+Route::post('/candidatos/store', 'CandidatoController@store')->name('candidatos.store');
+
 //Muestra los trabajos en el front end sin autenticacion 
 Route::get('/vacantes/{vacante}', 'VacanteController@show')->name('vacantes.show');
