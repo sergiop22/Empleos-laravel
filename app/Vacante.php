@@ -33,4 +33,10 @@ class Vacante extends Model
     {
     	return $this->belongsTo(Experiencia::class);
     }
+
+    //relacion 1:1
+    public function reclutador()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
