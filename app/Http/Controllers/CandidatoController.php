@@ -89,7 +89,7 @@ class CandidatoController extends Controller
 
         //Mensaje por correo para el reclutador cuando alguien se postule
         $reclutador = $vacante->reclutador;
-        $reclutador->notify( new NuevoCandidato( $vacante->titulo ) );
+        $reclutador->notify( new NuevoCandidato( $vacante->titulo, $vacante->id ) );
 
         return back()->with('estado', 'Tus datos se enviaron correctamente ¡SUERTE!');
     }

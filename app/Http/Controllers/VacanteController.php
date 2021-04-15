@@ -150,4 +150,12 @@ class VacanteController extends Controller
             return response('Imagen eliminada', 200);
         }
     }
+
+    //Cambia el estado de una vacante
+    public function estado(Request $request, Vacante $vacante)
+    {
+        //leer nuevo estado y asignarlo a la BD
+        $vacante->activa = $request->estado;
+        $vacante->save();
+    }
 }
