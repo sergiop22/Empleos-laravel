@@ -103,6 +103,9 @@ class VacanteController extends Controller
      */
     public function edit(Vacante $vacante)
     {
+        //para pasar la vacante y que solo la vea el usuario que hizo esa vacante, esto va a un policy
+        $this->authorize('view', $vacante); 
+
         $categorias = Categoria::all();
         $experiencias = Experiencia::all();
         $ubicaciones = Ubicacion::all();
@@ -125,6 +128,9 @@ class VacanteController extends Controller
      */
     public function update(Request $request, Vacante $vacante)
     {
+        //para pasar la vacante y que solo la vea el usuario que hizo esa vacante, esto va a un policy
+        $this->authorize('update', $vacante); 
+
         //validaion
         $data = $request->validate([
             'titulo' => 'required|min:8',
@@ -158,6 +164,9 @@ class VacanteController extends Controller
      */
     public function destroy(Vacante $vacante)
     {
+        //para pasar la vacante y que solo la vea el usuario que hizo esa vacante, esto va a un policy
+        $this->authorize('delete', $vacante); 
+
         $vacante->delete();
 
         return response()->json(['mensaje' => 'Se elimino la vacante' . $vacante->titulo]);
