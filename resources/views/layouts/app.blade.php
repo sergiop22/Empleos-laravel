@@ -64,7 +64,7 @@
         </nav>
 
         <div class="bg-gray-700">
-            <nav class="container mx-auto flex space-x-1">
+            <nav class="container mx-auto flex flex-col text-center md:flex-row space-x-1">
                 @yield('navegacion')
             </nav>
         </div>
